@@ -23,7 +23,7 @@
         .backdrop-blur-md { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
         .gold-glow { text-shadow: 0 0 15px rgba(251, 191, 36, 0.4); }
         .bg-gold-gradient { background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%); }
-        .border-gold { border-color: rgba(251, 191, 36, 0.3); }
+        .border-gold { border-color: rgba(251, 191, 36, 0.2); }
     </style>
 </head>
 <body class="selection-gold">
@@ -33,6 +33,7 @@
         const { useState } = React;
         const { motion, AnimatePresence } = window.Motion || { motion: (props) => <div {...props} />, AnimatePresence: ({children}) => children };
 
+        // --- CONFIGURAÇÃO DE CONTACTO ---
         const WHATSAPP_NUMBER = "5527996068313";
 
         // --- ICONES SVG ---
@@ -49,6 +50,8 @@
         const Target = (props) => <Icon {...props}><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></Icon>;
         const Users = (props) => <Icon {...props}><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></Icon>;
         const Calendar = (props) => <Icon {...props}><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></Icon>;
+        const Shield = (props) => <Icon {...props}><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></Icon>;
+        const Eye = (props) => <Icon {...props}><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></Icon>;
 
         const Badge = ({ children }) => (
             <span className="inline-block px-3 py-1 text-[10px] font-bold uppercase tracking-widest bg-amber-400/10 text-amber-400 border border-amber-400/20 rounded-full mb-6">
@@ -88,8 +91,8 @@
             };
 
             return (
-                <div className="min-h-screen">
-                    {/* SECTION 1: HERO - CTA ÚNICO */}
+                <div className="min-h-screen selection-gold bg-[#050505]">
+                    {/* SECTION 1: HERO */}
                     <section className="min-h-screen flex flex-col justify-center px-6 md:px-24 relative overflow-hidden">
                         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-amber-500/10 via-transparent to-transparent opacity-50" />
                         <motion.div {...fadeInUp} className="relative z-10 max-w-5xl">
@@ -98,7 +101,7 @@
                                 BARÕES <br /><span className="text-amber-400 gold-glow">DO HAND.</span>
                             </h1>
                             <p className="text-xl md:text-2xl text-zinc-500 max-w-2xl font-light leading-relaxed">
-                                A tradição dos <span className="text-white font-medium font-bold">Barões do Hand</span> encontra a engenharia de performance da <span className="text-amber-400 font-bold italic underline decoration-amber-400 decoration-2 underline-offset-4">Nopulo</span>. Não buscamos equipamento, buscamos o topo.
+                                A tradição dos <span className="text-white font-bold">Barões do Hand</span> encontra a engenharia de performance da <span className="text-amber-400 font-bold italic underline decoration-amber-400 decoration-2 underline-offset-4">Nopulo</span>. Não buscamos apenas equipamento, buscamos dominação.
                             </p>
                             <button 
                                 onClick={() => { setMeetingModal(true); setIsSubmitted(false); }} 
@@ -111,135 +114,203 @@
 
                     {/* SECTION 2: AUTORIDADE */}
                     <section className="min-h-screen flex flex-col justify-center px-6 md:px-24 bg-[#0a0a0a]">
-                        <div className="max-w-7xl mx-auto w-full">
+                        <div className="max-w-7xl mx-auto w-full text-center lg:text-left">
                             <motion.div {...fadeInUp} className="mb-20">
-                                <Badge>Liderança Barões do Hand</Badge>
-                                <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-8 leading-none text-center lg:text-left">Visão <br />e <span className="text-amber-400">Estratégia.</span></h2>
+                                <Badge>Comando Estratégico</Badge>
+                                <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-8 leading-none">O Alto <br /><span className="text-amber-400">Escalão.</span></h2>
                             </motion.div>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                                 <div className="group">
                                     <div className="aspect-[3/4] overflow-hidden bg-zinc-900 border border-zinc-800 grayscale hover:grayscale-0 transition-all duration-700">
                                         <img src="./images/ayrton-ribeiro.jpg" alt="Ayrton Ribeiro" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                                     </div>
-                                    <div className="mt-6"><h4 className="text-xl font-bold text-white uppercase tracking-wider">Ayrton Ribeiro</h4><p className="text-[11px] text-amber-400 uppercase font-black tracking-[0.25em] mt-2">Coordenador de Handebol</p></div>
+                                    <div className="mt-6"><h4 className="text-xl font-bold text-white uppercase tracking-wider">Ayrton Ribeiro</h4><p className="text-[11px] text-amber-400 uppercase font-black tracking-[0.25em] mt-2">Coordenador Geral</p></div>
                                 </div>
                                 <div className="group">
-                                    <div className="aspect-[3/4] overflow-hidden bg-zinc-900 border border-zinc-800 grayscale hover:grayscale-0 transition-all duration-700">
+                                    <div className="aspect-[3/4] overflow-hidden bg-zinc-900 border border-amber-400/30 grayscale hover:grayscale-0 transition-all duration-700">
                                         <img src="./images/andrezza-rodrigues.jpg" alt="Andrezza Rodrigues" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                                     </div>
-                                    <div className="mt-6"><h4 className="text-xl font-bold text-white uppercase tracking-wider">Andrezza Rodrigues</h4><p className="text-[11px] text-amber-400 uppercase font-black tracking-[0.25em] mt-2">Estrategista-Chefe</p></div>
+                                    <div className="mt-6"><h4 className="text-xl font-bold text-white uppercase tracking-wider italic gold-glow">Andrezza Rodrigues</h4><p className="text-[11px] text-amber-400 uppercase font-black tracking-[0.25em] mt-2">Chief Tactical Architect</p></div>
                                 </div>
                                 <div className="group">
                                     <div className="aspect-[3/4] overflow-hidden bg-zinc-900 border border-zinc-800 grayscale hover:grayscale-0 transition-all duration-700">
                                         <img src="./images/bruno-mendonca.jpg" alt="Bruno Mendonça" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                                     </div>
-                                    <div className="mt-6"><h4 className="text-xl font-bold text-white uppercase tracking-wider">Bruno Mendonça</h4><p className="text-[11px] text-amber-400 uppercase font-black tracking-[0.25em] mt-2">Diretor de Performance</p></div>
+                                    <div className="mt-6"><h4 className="text-xl font-bold text-white uppercase tracking-wider italic">Bruno <span className="text-amber-400 gold-glow">Mendonça.</span></h4><p className="text-[11px] text-amber-400 uppercase font-black tracking-[0.25em] mt-2">Director of Human Analytics</p></div>
                                 </div>
                             </div>
                         </div>
                     </section>
 
-                    {/* SECTION 3: QUEM SOMOS */}
-                    <section className="py-40 px-6 md:px-24 bg-[#0a0a0a]">
-                        <div className="max-w-4xl mx-auto w-full text-center lg:text-left">
-                            <motion.div {...fadeInUp}>
-                                <Badge>Nossa Essência</Badge>
-                                <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter mb-12 leading-none">Quem <br /><span className="text-amber-400">Somos.</span></h2>
-                                <div className="space-y-8">
-                                    <div className="h-px w-20 bg-amber-400 mb-8 mx-auto lg:mx-0" />
-                                    <p className="text-zinc-500 text-xl md:text-2xl leading-relaxed font-light italic">
-                                        [Sua narrativa de legado e missão será inserida aqui. Foque no impacto cultural e na autoridade dos Barões.]
-                                    </p>
-                                </div>
+                    {/* SECTION 3: SOBRE NÓS */}
+                    <section className="py-40 px-6 md:px-24 bg-[#050505]">
+                        <div className="max-w-6xl mx-auto w-full text-left">
+                            <motion.div {...fadeInUp} className="mb-24">
+                                <Badge>Nossa Gênese</Badge>
+                                <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter mb-4 leading-none">
+                                    Sobre <br /><span className="text-amber-400 gold-glow">Nós.</span>
+                                </h2>
+                            </motion.div>
+
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 text-zinc-400 leading-relaxed text-lg text-justify">
+                                <motion.div {...fadeInUp} className="space-y-12">
+                                    <div className="relative pl-8 border-l border-amber-400/30">
+                                        <h3 className="text-amber-400 uppercase text-xs font-black tracking-[0.3em] mb-4 italic">01. O Caos Pré-Reestruturação</h3>
+                                        <p>
+                                            Houve um tempo em que os Barões eram apenas um nome no papel. Éramos um "catado", operando no limite da desorganização. Mas, enquanto o mercado via apenas um time universitário comum, uma faísca de insurgência crescia nos vestiários. Os atletas mais velhos, que já haviam batido no teto da mediocridade, entenderam que o talento sem direção era um desperdício de vida.
+                                        </p>
+                                    </div>
+
+                                    <div className="relative pl-8 border-l border-amber-400/30">
+                                        <h3 className="text-amber-400 uppercase text-xs font-black tracking-[0.3em] mb-4 italic">02. O Pacto dos Veteranos</h3>
+                                        <p>
+                                            A reestruturação não veio de cima para baixo; ela nasceu de dentro. Os veteranos decidiram que o ciclo de "jogar por jogar" terminaria ali. Eles não apenas motivaram os mais novos; eles os doutrinaram. Criaram um ambiente onde a exigência superava o conforto. Foi esse pacto interno que preparou o terreno para a nossa maior jogada: a busca pela autoridade máxima.
+                                        </p>
+                                    </div>
+                                </motion.div>
+
+                                <motion.div {...fadeInUp} transition={{delay: 0.2}} className="space-y-12 text-zinc-400 leading-relaxed text-lg text-justify">
+                                    <div className="relative pl-8 border-l border-amber-400/30">
+                                        <h3 className="text-amber-400 uppercase text-xs font-black tracking-[0.3em] mb-4 italic">03. A Chegada dos Mestres</h3>
+                                        <p>
+                                            Quando o terreno estava pronto e a mentalidade estava blindada, nós trouxemos os generais. Bruno Mendonça e Andrezza Rodrigues não chegaram para ensinar a jogar bola; eles chegaram para liderar um exército que já havia decidido vencer. A chegada deles foi o catalisador químico que transformou nossa vontade em método e nosso suor em estratégia.
+                                        </p>
+                                    </div>
+
+                                    <div className="relative pl-8 border-l border-amber-400/30">
+                                        <h3 className="text-amber-400 uppercase text-xs font-black tracking-[0.3em] mb-4 italic">04. A Nova Era: Barões do Handebol</h3>
+                                        <p>
+                                            Saímos da obscuridade para o topo do pódio na Athleticup, Humaniadas e TUC. Hoje, cada calouro que entra para os Barões sente o peso da responsabilidade transmitida pelos que vieram antes. Nós não somos mais um grupo de atletas. Somos um ecossistema de alta performance, validado pela elite técnica e equipado pela tecnologia da Nopulo.
+                                        </p>
+                                    </div>
+                                </motion.div>
+                            </div>
+                            
+                            <motion.div {...fadeInUp} className="mt-32 p-12 border border-amber-400/20 bg-zinc-900/30 text-center relative overflow-hidden">
+                                <div className="absolute top-0 left-0 w-full h-0.5 bg-gold-gradient opacity-40" />
+                                <p className="text-2xl md:text-4xl font-black uppercase tracking-tighter text-white leading-tight">
+                                    O "catado" ficou no passado. O que resta hoje é um <span className="text-amber-400 gold-glow">império</span> construído sobre a base da liderança e a busca incessante pelo <span className="italic">God Mode</span>.
+                                </p>
                             </motion.div>
                         </div>
                     </section>
 
-                    {/* SECTION 4: COMISSÃO TÉCNICA */}
-                    <section className="py-32 px-6 md:px-24 bg-[#050505]">
+                    {/* SECTION 4: DESTAQUE ANDREZZA */}
+                    <section className="py-32 px-6 md:px-24 bg-[#0a0a0a] overflow-hidden border-t border-zinc-900">
                         <div className="max-w-7xl mx-auto w-full">
-                            <motion.div {...fadeInUp} className="mb-20 text-center lg:text-left">
-                                <Badge>Expertise no Comando</Badge>
-                                <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter mb-8 leading-none">Comissão <br /><span className="text-amber-400">Técnica.</span></h2>
-                            </motion.div>
-                            <div className="space-y-32">
-                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                                    <motion.div {...fadeInUp}>
-                                        <h3 className="text-3xl font-black uppercase tracking-tight text-white mb-2 italic">Andrezza Rodrigues</h3>
-                                        <p className="text-amber-400 font-bold uppercase tracking-[0.3em] text-xs mb-8">Estrategista-Chefe</p>
-                                        <div className="space-y-6 text-zinc-400 leading-relaxed">
-                                            <p>[Biografia técnica Andrezza]</p>
-                                            <div className="flex flex-wrap gap-3 pt-4">
-                                                {["Tática Avançada", "Análise de Dados", "Gestão de Elite"].map(tag => (
-                                                    <span key={tag} className="px-3 py-1 bg-zinc-900 border border-zinc-800 text-[10px] uppercase font-bold text-zinc-500 tracking-widest">{tag}</span>
-                                                ))}
+                            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center text-left">
+                                <motion.div {...fadeInUp} className="lg:col-span-7 order-2 lg:order-1">
+                                    <Badge>A Arquiteta da Vitória</Badge>
+                                    <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter text-white mb-4 leading-none">
+                                        Andrezza <br /><span className="text-amber-400 gold-glow italic block">Rodrigues.</span>
+                                    </h2>
+                                    <p className="text-amber-400 font-bold uppercase tracking-[0.4em] text-xs mb-8 flex items-center gap-2">
+                                        <Shield size={14} /> Chief Tactical Architect
+                                    </p>
+                                    <div className="space-y-6 text-zinc-400 text-lg leading-relaxed max-w-2xl">
+                                        <p>No mundo da performance, a tática é a ponte entre o potencial e o pódio. Andrezza Rodrigues opera na fronteira da <span className="text-white font-bold italic">inteligência esportiva moderna</span>, decodificando sistemas de jogo com uma precisão cirúrgica que poucos no cenário nacional alcançam.</p>
+                                        <p>Sua abordagem não se baseia em instinto, mas em uma <span className="text-white border-b border-amber-400/30 italic font-medium">Engenharia de Movimento</span> rigorosa. Ela é a responsável por desenhar o "Software" dos Barões do Hand, garantindo que cada posse de bola seja uma execução tática de elite, pronta para validar o equipamento da Nopulo sob fogo cruzado.</p>
+                                    </div>
+                                    <div className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-4 pt-12 border-t border-zinc-900">
+                                        {["Tática Avançada", "Data-Driven", "Elite Tier"].map(skill => (
+                                            <div key={skill} className="space-y-1">
+                                                <p className="text-[10px] uppercase font-black text-zinc-600 tracking-widest">Especialidade</p>
+                                                <p className="text-white font-bold text-sm">{skill}</p>
                                             </div>
-                                        </div>
-                                    </motion.div>
-                                    <div className="aspect-[4/5] bg-zinc-900 border border-zinc-800 overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
+                                        ))}
+                                    </div>
+                                </motion.div>
+                                <motion.div {...fadeInUp} transition={{delay: 0.2}} className="lg:col-span-5 order-1 lg:order-2 relative group">
+                                    <div className="aspect-[4/5] bg-zinc-900 border border-amber-400/20 overflow-hidden grayscale hover:grayscale-0 transition-all duration-1000 relative z-10">
                                         <img src="./images/andrezza-rodrigues.jpg" className="w-full h-full object-cover" />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
                                     </div>
-                                </div>
-                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                                    <div className="aspect-[4/5] bg-zinc-900 border border-zinc-800 overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 order-2 lg:order-1">
-                                        <img src="./images/bruno-mendonca.jpg" className="w-full h-full object-cover" />
-                                    </div>
-                                    <motion.div {...fadeInUp} className="order-1 lg:order-2">
-                                        <h3 className="text-3xl font-black uppercase tracking-tight text-white mb-2 italic">Bruno Mendonça</h3>
-                                        <p className="text-amber-400 font-bold uppercase tracking-[0.3em] text-xs mb-8">Diretor de Performance</p>
-                                        <div className="space-y-6 text-zinc-400 leading-relaxed">
-                                            <p>[Biografia técnica Bruno]</p>
-                                            <div className="flex flex-wrap gap-3 pt-4">
-                                                {["Biomecânica", "Rendimento", "Recuperação"].map(tag => (
-                                                    <span key={tag} className="px-3 py-1 bg-zinc-900 border border-zinc-800 text-[10px] uppercase font-bold text-zinc-500 tracking-widest">{tag}</span>
-                                                ))}
-                                            </div>
+                                </motion.div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* SECTION 5: DESTAQUE BRUNO */}
+                    <section className="py-32 px-6 md:px-24 bg-[#050505] overflow-hidden border-t border-zinc-900">
+                        <div className="max-w-7xl mx-auto w-full">
+                            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center text-left">
+                                <motion.div {...fadeInUp} className="lg:col-span-5 relative group">
+                                    <div className="aspect-[4/5] bg-zinc-900 border border-amber-400/20 overflow-hidden grayscale hover:grayscale-0 transition-all duration-1000 relative z-10">
+                                        <img src="./images/bruno-mendonca.jpg" className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-1000" />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
+                                        <div className="absolute bottom-6 left-6">
+                                            <p className="text-[10px] text-amber-400 font-black uppercase tracking-[0.3em]">Human Analytics</p>
+                                            <h4 className="text-white font-black uppercase text-xl">The Athlete Reader</h4>
                                         </div>
-                                    </motion.div>
-                                </div>
+                                    </div>
+                                </motion.div>
+
+                                <motion.div {...fadeInUp} transition={{delay: 0.2}} className="lg:col-span-7">
+                                    <Badge>A Ciência do Limite Humano</Badge>
+                                    <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter text-white mb-4 leading-none">
+                                        Bruno <br /><span className="text-amber-400 gold-glow italic block">Mendonça.</span>
+                                    </h2>
+                                    <p className="text-amber-400 font-bold uppercase tracking-[0.4em] text-xs mb-8 flex items-center gap-2">
+                                        <Eye size={14} /> Director of High Performance & Human Analytics
+                                    </p>
+                                    <div className="space-y-6 text-zinc-400 text-lg leading-relaxed max-w-2xl">
+                                        <p>
+                                            A performance de elite começa na percepção. Bruno Mendonça detém a rara <span className="text-white font-bold italic">Capacidade de Leitura dos Atletas</span>, uma habilidade analítica que permite decodificar o estado físico e mental de cada jogador antes mesmo que a falha aconteça.
+                                        </p>
+                                        <p>
+                                            O seu papel é a <span className="text-white border-b border-amber-400/30 italic font-medium">Calibração em Tempo Real</span>. Bruno monitora o rendimento humano sob pressão, garantindo que os Barões operem sempre no ponto máximo da sua eficiência, assegurando que cada peça de tecnologia da Nopulo seja utilizada com o máximo de entrega e o mínimo de risco.
+                                        </p>
+                                    </div>
+                                    <div className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-4 pt-12 border-t border-zinc-900">
+                                        {["Leitura de Atletas", "Human Analytics", "High Rendiment"].map((skill, i) => (
+                                            <div key={i} className="space-y-1">
+                                                <p className="text-[10px] uppercase font-black text-zinc-600 tracking-widest">{i === 0 ? "Especialidade" : i === 1 ? "Metodologia" : "Status"}</p>
+                                                <p className={i === 2 ? "text-amber-400 font-bold text-sm uppercase italic" : "text-white font-bold text-sm"}>{skill}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </motion.div>
                             </div>
                         </div>
                     </section>
 
-                    {/* SECTION 5: PROJETO */}
+                    {/* SECTION 6: ALÉM DA QUADRA */}
                     <section className="py-32 px-6 md:px-24 bg-[#050505] border-y border-zinc-900">
-                        <div className="max-w-6xl mx-auto w-full">
-                            <motion.div {...fadeInUp} className="max-w-3xl mb-20">
-                                <Badge>Engenharia de Domínio</Badge>
-                                <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter mb-8 leading-none">Muito além <br /><span className="text-amber-400">da Quadra.</span></h2>
-                            </motion.div>
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-                                <div className="p-8 border border-zinc-800 bg-zinc-900/20 rounded-sm hover:border-amber-400/30 transition-all group">
-                                    <div className="mb-6 text-amber-400 group-hover:scale-110 transition-transform"><Trophy size={32} /></div>
-                                    <h4 className="text-xl font-black uppercase tracking-tight text-white mb-4">Elite Técnica</h4>
-                                    <p className="text-zinc-500 text-sm leading-relaxed">Resultados que validam a engenharia da Nopulo.</p>
-                                </div>
-                                <div className="p-8 border border-zinc-800 bg-zinc-900/20 rounded-sm hover:border-amber-400/30 transition-all group">
-                                    <div className="mb-6 text-amber-400 group-hover:scale-110 transition-transform"><Users size={32} /></div>
-                                    <h4 className="text-xl font-black uppercase tracking-tight text-white mb-4">Impacto Cultural</h4>
-                                    <p className="text-zinc-500 text-sm leading-relaxed">Transformamos equipamento em desejo.</p>
-                                </div>
-                                <div className="p-8 border border-zinc-800 bg-zinc-900/20 rounded-sm hover:border-amber-400/30 transition-all group">
-                                    <div className="mb-6 text-amber-400 group-hover:scale-110 transition-transform"><Target size={32} /></div>
-                                    <h4 className="text-xl font-black uppercase tracking-tight text-white mb-4">Vitrine 4K</h4>
-                                    <p className="text-zinc-500 text-sm leading-relaxed">Narrativa visual para a tecnologia Select.</p>
-                                </div>
+                        <div className="max-w-6xl mx-auto w-full text-left">
+                            <Badge>Engenharia de Domínio</Badge>
+                            <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter mb-16 leading-none">Além da <br /><span className="text-amber-400 gold-glow">Quadra.</span></h2>
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-left">
+                                <motion.div {...fadeInUp} className="p-8 border border-zinc-800 bg-zinc-900/20 hover:border-amber-400/30 transition-all group">
+                                    <Trophy size={32} className="text-amber-400 mb-6 group-hover:scale-110 transition-transform" />
+                                    <h4 className="text-xl font-black uppercase text-white mb-4 italic">Elite Técnica</h4>
+                                    <p className="text-zinc-500 text-sm leading-relaxed">Treinos sob rigor profissional e ciência do esporte. Buscamos resultados que validam a engenharia da Nopulo.</p>
+                                </motion.div>
+                                <motion.div {...fadeInUp} transition={{delay: 0.1}} className="p-8 border border-zinc-800 bg-zinc-900/20 hover:border-amber-400/30 transition-all group">
+                                    <Users size={32} className="text-amber-400 mb-6 group-hover:scale-110 transition-transform" />
+                                    <h4 className="text-xl font-black uppercase text-white mb-4 italic">Impacto Cultural</h4>
+                                    <p className="text-zinc-500 text-sm leading-relaxed">Conexão direta com 5.000 estudantes universitários. Transformamos material em objeto de desejo e identidade.</p>
+                                </motion.div>
+                                <motion.div {...fadeInUp} transition={{delay: 0.2}} className="p-8 border border-zinc-800 bg-zinc-900/20 hover:border-amber-400/30 transition-all group">
+                                    <Target size={32} className="text-amber-400 mb-6 group-hover:scale-110 transition-transform" />
+                                    <h4 className="text-xl font-black uppercase text-white mb-4 italic">Vitrine 4K</h4>
+                                    <p className="text-zinc-500 text-sm leading-relaxed">Narrativa visual cinematográfica. Cada jogada é um anúncio de alta retenção para a tecnologia Select.</p>
+                                </motion.div>
                             </div>
                         </div>
                     </section>
 
-                    {/* SECTION 6: EQUITY TABLE */}
+                    {/* SECTION 7: EQUITY TABLE */}
                     <section className="py-32 px-6 md:px-24 bg-[#080808]">
-                        <div className="max-w-6xl mx-auto w-full">
-                            <Badge>Impacto de Marca</Badge>
-                            <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-16 leading-tight">A Entrega <br /><span className="text-amber-400">Estratégica.</span></h2>
+                        <div className="max-w-6xl mx-auto w-full text-left">
+                            <Badge>Valor Estratégico</Badge>
+                            <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-16 leading-tight">Diferencial <br /><span className="text-amber-400">Select.</span></h2>
                             <div className="overflow-x-auto">
-                                <table className="w-full text-left border-collapse">
+                                <table className="w-full border-collapse">
                                     <thead>
                                         <tr className="border-b border-zinc-800 uppercase text-[10px] tracking-widest text-zinc-600 font-black">
-                                            <th className="py-6 px-4">Ativos</th>
-                                            <th className="py-6 px-4 text-center">Comum</th>
-                                            <th className="py-6 px-4 text-center text-amber-400 bg-amber-400/5 border-x border-t border-amber-400/20 italic text-sm">Barões do Hand x Nopulo</th>
+                                            <th className="py-6 px-4">Ativos de Marca</th>
+                                            <th className="py-6 px-4 text-center">Apoio Comum</th>
+                                            <th className="py-6 px-4 text-center text-amber-400 bg-amber-400/5 border-x border-t border-amber-400/20 italic">Aliança Gold</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -252,7 +323,7 @@
                                             <tr key={idx} className="border-b border-zinc-900 group hover:bg-zinc-900/30 transition-colors">
                                                 <td className="py-5 px-4 font-medium text-zinc-300 text-sm">{row.f}</td>
                                                 <td className="py-5 px-4 text-center">{row.t ? <Check size={18} className="inline text-zinc-700" /> : <XIcon size={18} className="inline text-zinc-800" />}</td>
-                                                <td className="py-5 px-4 text-center bg-amber-400/5 border-x border-amber-400/20"><Check size={20} className="inline text-amber-400" /></td>
+                                                <td className="py-5 px-4 text-center bg-amber-400/5 border-x border-orange-500/20"><Check size={20} className="inline text-amber-400 shadow-amber-500" /></td>
                                             </tr>
                                         ))}
                                     </tbody>
@@ -261,40 +332,38 @@
                         </div>
                     </section>
 
-                    {/* SECTION 7: CTA FINAL - ÚNICO E PODEROSO */}
+                    {/* SECTION 8: CTA FINAL */}
                     <section className="min-h-screen flex flex-col justify-center px-6 md:px-24 bg-[#0a0a0a]">
-                        <div className="max-w-4xl mx-auto border border-amber-400/30 bg-zinc-900/30 p-12 md:p-24 text-center relative overflow-hidden shadow-2xl">
+                        <div className="max-w-4xl mx-auto border border-amber-400/30 bg-zinc-900/30 p-12 md:p-24 text-center relative shadow-2xl overflow-hidden">
                             <div className="absolute -top-24 -right-24 w-64 h-64 bg-amber-400/10 blur-[100px]" />
                             <Badge>Protocolo de Aliança Oficial</Badge>
-                            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-6">Vamos liderar <br />esta <span className="text-amber-400 gold-glow">Ascensão.</span></h2>
-                            <div className="flex justify-center mt-12">
-                                <button 
-                                    onClick={() => { setMeetingModal(true); setIsSubmitted(false); }} 
-                                    className="bg-gold-gradient text-black px-12 py-6 font-black uppercase tracking-tighter hover:scale-105 transition-all shadow-xl shadow-amber-500/20 text-lg"
-                                >
-                                    Reunião de Decisão
-                                </button>
-                            </div>
+                            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-12 leading-none">Inicie o seu <br /><span className="text-amber-400 gold-glow italic">Legado.</span></h2>
+                            <button 
+                                onClick={() => { setMeetingModal(true); setIsSubmitted(false); }} 
+                                className="bg-gold-gradient text-black px-12 py-6 font-black uppercase tracking-tighter hover:scale-105 transition-all text-lg shadow-xl shadow-amber-500/20"
+                            >
+                                Reunião de Decisão
+                            </button>
                         </div>
                     </section>
 
                     {/* MODAL REUNIÃO */}
-                    <Modal isOpen={meetingModal} onClose={() => setMeetingModal(false)} title={isSubmitted ? "Ouro Confirmado" : "Reunião de Decisão"}>
+                    <Modal isOpen={meetingModal} onClose={() => setMeetingModal(false)} title={isSubmitted ? "Ouro Confirmado" : "Decisão Técnica"}>
                         <AnimatePresence mode="wait">
                             {!isSubmitted ? (
                                 <motion.form key="form" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="space-y-5" onSubmit={handleSubmit}>
-                                    <div className="space-y-2">
-                                        <label className="text-[10px] uppercase font-black text-zinc-500 tracking-widest">Nome / Cargo na Nopulo</label>
+                                    <div className="space-y-2 text-left">
+                                        <label className="text-[10px] uppercase font-black text-zinc-500 tracking-widest">Seu Nome / Cargo na Nopulo</label>
                                         <input name="representative" required type="text" className="w-full bg-zinc-900 border border-zinc-800 p-4 text-white text-sm focus:border-amber-400 outline-none transition-colors" placeholder="Ex: Diretor de Marketing" />
                                     </div>
                                     <button type="submit" className="w-full bg-gold-gradient text-black py-4 font-black uppercase tracking-widest text-xs flex items-center justify-center gap-2 hover:scale-105 transition-all">Solicitar Call Técnica <Calendar size={16} /></button>
                                 </motion.form>
                             ) : (
-                                <motion.div key="success" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="py-10 text-center space-y-6">
-                                    <div className="w-20 h-20 bg-amber-400/20 rounded-full flex items-center justify-center mx-auto border border-amber-400/30"><Check size={40} className="text-amber-400" /></div>
-                                    <h4 className="text-xl font-black uppercase tracking-tight text-white leading-tight">Alinhamento Iniciado</h4>
-                                    <p className="text-zinc-500 text-sm italic">O Ayrton Ribeiro entrará em contacto direto via WhatsApp.</p>
-                                    <button onClick={() => setMeetingModal(false)} className="text-[10px] uppercase font-black text-zinc-600 tracking-[0.3em] hover:text-white transition-colors">Fechar Janela</button>
+                                <motion.div key="success" className="py-10 text-center space-y-6">
+                                    <div className="w-20 h-20 bg-amber-400/20 rounded-full flex items-center justify-center mx-auto border border-amber-400/30 shadow-gold"><Check size={40} className="text-amber-400" /></div>
+                                    <h4 className="text-xl font-black uppercase text-white gold-glow">Conexão Iniciada</h4>
+                                    <p className="text-zinc-500 text-sm italic">Ayrton Ribeiro entrará em contacto direto via WhatsApp.</p>
+                                    <button onClick={() => setMeetingModal(false)} className="text-[10px] uppercase font-black text-zinc-600 tracking-[0.3em] hover:text-white transition-colors mt-8">Fechar Janela</button>
                                 </motion.div>
                             )}
                         </AnimatePresence>
